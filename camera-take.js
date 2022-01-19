@@ -39,7 +39,7 @@ navigator.mediaDevices.getUserMedia({ video: true })
       return;
     }
 
-    track.applyConstraints({advanced : [{brightness: 100}] });
+    track.applyConstraints({advanced : [{brightness: 0}] });
     /// OVERRIDE Constraint
 
     imageCapture = new ImageCapture(track);
