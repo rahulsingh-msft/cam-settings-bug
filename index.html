@@ -1,0 +1,73 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Sample illustrating the use of Image Capture / Photo Resolution.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Image Capture / Photo Resolution Sample</title>
+  <link rel="icon" href="../images/favicon.ico">
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="photo-resolution.css">
+
+</head>
+
+<body>
+
+  <h1>Image Capture / Photo Resolution Sample</h1>
+  <!-- <p class="availability">
+    Available in <a target="_blank" href="https://www.chromestatus.com/feature/5104908176982016">Chrome 61+</a> |
+    <a target="_blank" href="https://github.com/googlechrome/samples/blob/gh-pages/image-capture/photo-resolution.html">View on GitHub</a> |
+    <a href="index.html">Browse Samples</a>
+  </p> -->
+  <h3>Background</h3>
+<p>The ImageCapture Web API allows web developers to manipulate "Non-Live"
+camera capabilities and settings such as the photo resolution, red eye
+reduction, and flash mode.</p>
+<p>This sample demonstrates the use of setting the image width of the
+photo.</p>
+
+<video autoplay=""></video>
+<input type="range" min="640" max="640" step="1">
+<button id="takePhotoButton">Take Photo</button>
+<canvas></canvas>
+
+<script>
+var ChromeSamples = {
+  log: function() {
+    var line = Array.prototype.slice.call(arguments).map(function(argument) {
+      return typeof argument === 'string' ? argument : JSON.stringify(argument);
+    }).join(' ');
+
+    document.querySelector('#log').textContent += line + '\n';
+  },
+
+  clearLog: function() {
+    document.querySelector('#log').textContent = '';
+  },
+
+  setStatus: function(status) {
+    document.querySelector('#status').textContent = status;
+  },
+
+  setContent: function(newContent) {
+    var content = document.querySelector('#content');
+    while(content.hasChildNodes()) {
+      content.removeChild(content.lastChild);
+    }
+    content.appendChild(newContent);
+  }
+};
+</script>
+
+<h3>Live Output</h3>
+  <div id="output" class="output">
+  <div id="content"></div>
+  <div id="status"></div>
+  <pre id="log"></pre>
+</div>
+
+<script src="camera-take.js"></script>
+
+</body>
+</html>
