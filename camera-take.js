@@ -34,12 +34,13 @@ navigator.mediaDevices.getUserMedia({ video: true })
 
     /// OVERRIDE Constraint
     const capabilities = track.getCapabilities()
-    // Check whether brightness is supported or not.
-    if (!capabilities.brightness) {
+    // Check whether aspectRatio and frameRate are supported.
+    if (!capabilities.aspectRatio || !capabilities.frameRate) {
       return;
     }
 
-    track.applyConstraints({advanced : [{brightness: 0}] });
+    track.applyConstraints({advanced : [{aspectRatio: 1}] });
+    track.applyConstraints({advanced : [{frameRate: 5}] });
     /// OVERRIDE Constraint
 
     imageCapture = new ImageCapture(track);
